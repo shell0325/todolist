@@ -23,14 +23,14 @@
             <button
               :value="todo.id"
               class="button"
-              @click="(e) => statustodos(e)"
+              @click="(e) => changeTodos(e)"
             >
               {{ todo.todoStatus }}
             </button>
             <button
               :value="todo.id"
               class="button"
-              @click="(e) => removetodos(e, todo)"
+              @click="(e) => removeTodos(e, todo)"
             >
               削除
             </button>
@@ -52,14 +52,14 @@
             <button
               :value="todo.id"
               class="button"
-              @click="(e) => statustodos(e)"
+              @click="(e) => changeTodos(e)"
             >
               {{ todo.todoStatus }}
             </button>
             <button
               :value="todo.id"
               class="button"
-              @click="(e) => removetodos(e, todo)"
+              @click="(e) => removeTodos(e, todo)"
             >
               削除
             </button>
@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from 'vuex';
 export default {
   computed: {
     picked: {
@@ -79,18 +79,18 @@ export default {
         return this.$store.state.picked;
       },
       set(value) {
-        this.$store.commit("setPicked", value);
+        this.$store.commit('setPicked', value);
       },
     },
     todos() {
-      return this.$store.state.todos;
+      return this.$store.getters.todos;
     },
     filterData() {
-      return this.$store.state.filterData;
+      return this.$store.getters.filterData;
     },
   },
   methods: {
-    ...mapActions(["removetodos", "statustodos", "filterTodos"]),
+    ...mapActions(['removeTodos', 'changeTodos', 'filterTodos']),
   },
 };
 </script>

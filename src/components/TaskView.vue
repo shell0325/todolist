@@ -32,10 +32,9 @@
   </div>
 </template>
 
-
 <script>
-import TableTask from "./TableTask.vue";
-import { mapActions } from "vuex";
+import TableTask from './TableTask.vue';
+import { mapActions } from 'vuex';
 export default {
   components: {
     TableTask,
@@ -52,7 +51,7 @@ export default {
         return this.$store.state.status;
       },
       set(status) {
-        this.$store.commit("statustodos", status);
+        this.$store.commit('changeTodos', status);
       },
     },
     picked: {
@@ -60,12 +59,12 @@ export default {
         return this.$store.state.picked;
       },
       set(value) {
-        this.$store.commit("setPicked", value);
+        this.$store.commit('setPicked', value);
       },
     },
   },
   methods: {
-    ...mapActions(["filterTodos"]),
+    ...mapActions(['filterTodos']),
   },
 };
 </script>

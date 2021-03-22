@@ -1,12 +1,12 @@
 <template>
   <div>
     <h1>新規タスクの追加</h1>
-    <input type="text" v-model="addcomment" />
+    <input type="text" v-model="comment" />
     <input
       type="button"
       value="追加"
       class="button"
-      @click="UpdateTodos(addcomment)"
+      @click="updateTodos(comment)"
     />
   </div>
 </template>
@@ -15,18 +15,18 @@
 export default {
   data() {
     return {
-      addcomment: "",
+      comment: '',
     };
   },
   computed: {
     todos() {
-      return this.$store.state.todos;
+      return this.$store.getters.todos;
     },
   },
   methods: {
-    UpdateTodos(comment) {
-      this.$store.dispatch("UpdateTodos", { comment: comment });
-      this.addcomment = "";
+    updateTodos(comment) {
+      this.$store.dispatch('updateTodos', { comment: comment });
+      this.comment = '';
     },
   },
 };
