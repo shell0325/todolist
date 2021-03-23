@@ -99,6 +99,9 @@ export default new Vuex.Store({
     filterData(state) {
       return state.filterData;
     },
+    picked(state) {
+      return state.picked;
+    },
   },
   actions: {
     updateTodos(context, todo) {

@@ -56,7 +56,7 @@ export default {
     },
     picked: {
       get() {
-        return this.$store.state.picked;
+        return this.$store.getters.picked;
       },
       set(value) {
         this.$store.commit('setPicked', value);
